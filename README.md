@@ -1,2 +1,2 @@
 # cali
-A simple calculator running on the console
+A simple rock-paper-scissors game running on the console
