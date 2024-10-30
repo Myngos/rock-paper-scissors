@@ -46,6 +46,21 @@ function getHumanChoice() {
         // Display results
         const result = document.querySelector("#result");
         result.textContent = resultMessage;
+
+        runningScore = `Current Scores - Human: ${humanScore}, Computer: ${computerScore}`;
+
+        document.getElementById("runningScore").textContent = runningScore;
+
+        let finalMessage = "";
+
+        if(humanScore === 5){
+            finalMessage = 'You win!';
+        }
+        if(computerScore === 5){
+            finalMessage = 'You lost the game!';
+        }
+
+        document.getElementById('final').textContent = finalMessage;
     }
         
 
