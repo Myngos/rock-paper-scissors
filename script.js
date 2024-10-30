@@ -24,38 +24,40 @@ function getHumanChoice() {
 
     function playRound(humanChoice) {
         const computerChoice = getComputerChoice().toLowerCase();
+        let resultMessage = "";
 
         if (humanChoice === computerChoice) {
-            console.log(`It's a tie! Both chose ${humanChoice}`);
+            resultMessage = `It's a tie! Both chose ${humanChoice}`;
         } else if (
             (humanChoice === 'rock' && computerChoice === 'scissors') ||
             (humanChoice === 'scissors' && computerChoice === 'paper') ||
             (humanChoice === 'paper' && computerChoice === 'rock')
         ) {
-            console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+            resultMessage = `You win! ${humanChoice} beats ${computerChoice}`;
             humanScore++;
         } else {
-            console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+            resultMessage = `You lose! ${computerChoice} beats ${humanChoice}`;
             computerScore++;
         }
+           
+        console.log(resultMessage);
+        console.log(`Current Scores - Human: ${humanScore}, Computer: ${computerScore}`);
+        
+        // Display results
+        const result = document.querySelector("#result");
+        result.textContent = resultMessage;
     }
+        
 
-    // // Display final scores
-    // console.log(`Final Scores - Human: ${humanScore}, Computer: ${computerScore}`);
     
-    // if (humanScore > computerScore) {
-    //     console.log("You win the game!");
-    // } else if (computerScore > humanScore) {
-    //     console.log("You lose the game!");
-    // } else {
-    //     console.log("The game is a tie!");
-    // }
-
+    
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 
+
 rock.addEventListener("click", ()=>(playRound("rock")));
 paper.addEventListener("click", ()=>(playRound("paper")));
 scissors.addEventListener("click", ()=>(playRound("scissors")));
+
 
