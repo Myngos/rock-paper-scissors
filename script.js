@@ -1,3 +1,7 @@
+
+let humanScore = 0;
+let computerScore = 0;
+
 // Get the computer's choice
 function getComputerChoice() {
     const choice = ['Rock', 'Paper', 'Scissors'];
@@ -17,13 +21,9 @@ function getHumanChoice() {
     return humanChoice;
 }
 
-function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
 
-    function playRound(humanChoice, computerChoice) {
-        humanChoice = humanChoice.toLowerCase();
-        computerChoice = computerChoice.toLowerCase();
+    function playRound(humanChoice) {
+        const computerChoice = getComputerChoice().toLowerCase();
 
         if (humanChoice === computerChoice) {
             console.log(`It's a tie! Both chose ${humanChoice}`);
@@ -40,24 +40,22 @@ function playGame() {
         }
     }
 
-    // Play 5 rounds
-    for (let i = 0; i < 5; i++) {
-        const humanChoice = getHumanChoice();
-        const computerChoice = getComputerChoice();
-        playRound(humanChoice, computerChoice);
-    }
-
-    // Display final scores
-    console.log(`Final Scores - Human: ${humanScore}, Computer: ${computerScore}`);
+    // // Display final scores
+    // console.log(`Final Scores - Human: ${humanScore}, Computer: ${computerScore}`);
     
-    if (humanScore > computerScore) {
-        console.log("You win the game!");
-    } else if (computerScore > humanScore) {
-        console.log("You lose the game!");
-    } else {
-        console.log("The game is a tie!");
-    }
-}
+    // if (humanScore > computerScore) {
+    //     console.log("You win the game!");
+    // } else if (computerScore > humanScore) {
+    //     console.log("You lose the game!");
+    // } else {
+    //     console.log("The game is a tie!");
+    // }
 
-// Start the game
-playGame();
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
+
+rock.addEventListener("click", ()=>(playRound("rock")));
+paper.addEventListener("click", ()=>(playRound("paper")));
+scissors.addEventListener("click", ()=>(playRound("scissors")));
+
